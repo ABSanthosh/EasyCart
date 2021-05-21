@@ -1,0 +1,399 @@
+
+@mixin heading {
+    color: #ac0606;
+    font-size: 3rem;
+    padding-top: 2.5rem;
+    span{
+        color: #333;
+    }
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+//Header Section
+#header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 2rem;
+    z-index: 1000;
+    height: 2.5rem;
+    font-family: 'Lemonada', sans-serif;
+
+    .logo{
+        img{
+            font-size: 4rem;
+            height: 3.5rem;
+        }  
+    }
+    nav{       
+        ul{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            list-style: none;
+            li{
+                margin-right: 2rem;
+                a{
+                    text-decoration: none;
+                    color: red;
+                    font-size: 1.3 rem;
+                    font-weight: bold;
+                }
+                a:hover{
+                    color: #ac0606;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+   
+    .grocery{
+        height: 3rem;
+        display: none;
+    }       
+}
+
+.fa-times{
+    transform: skew(360deg) rotate(360deg);
+}
+
+.header-active{
+    background: #333;
+    height: 6rem;
+    box-shadow: .2rem 0 .5rem #000;
+    color: white;
+    nav{
+        ul{
+            margin: 0;
+        }
+    }
+}
+
+
+
+//Header Section Ends
+
+//Home Section starts
+
+#home{
+    background: #e1e5ea;
+    
+    position: relative;
+    font-family: 'Lemonada', sans-serif;
+    
+    h1{
+        font-size: 5rem;
+        margin: 1rem 0;
+        text-align: left;
+        color: #ac0606;
+        font-weight: bolder;
+    }
+
+    p{
+        font-size: 1rem;
+        text-align: left;
+        color: #fff;
+    }
+
+
+
+    .download-button{
+        margin: auto 7rem;
+        width: unset !important;
+        .apple{
+            min-width: 254px;
+            img{
+                height: 5rem;
+            }
+            padding: 12px 20px !important;
+            margin: auto 1rem;
+          }
+
+          .google{
+              img{
+                  height: 5rem;
+              }
+          }
+    
+          .btn-store .btn-label, 
+          .btn-store .btn-caption {
+            display: block;
+            text-align: left;
+            line-height: 1;
+          }
+          
+          .btn-store .btn-caption {
+            font-size: 24px;
+          }
+    }
+
+    .homerow{
+        width: unset !important;
+        display: flex;
+        .video-container{
+            .vid{
+                height: 60rem;
+                margin-right: 0.5rem;
+            }
+            
+        }
+    }
+    
+}
+
+//Home Section ends
+
+//Location Section Starts
+
+#location{
+    background: #f4f9f9;
+    .heading{
+        h1{
+            @include heading;
+        }
+        p{
+            color: #333;
+            font-size: 1.5rem;
+        }
+    }
+
+    .card-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        // transition: 0.3s;
+        // transform: scale(1);
+        
+        .card{
+            height: 30rem;
+            width: 25rem;
+            margin: 2rem 3rem;
+            background: #ac0606;
+
+            img{
+                height: 87%;
+                width: 100%;
+                object-fit: cover;
+
+                .rad{
+                    transform: scale(1.5);
+                }
+            }
+
+            h1{
+                text-align: center;
+                font-size: 2rem;
+                margin-top: 0.6rem;
+                color: white;
+            }
+        }
+        .card:hover{
+            transform: scale(.9);
+        }
+    }
+}
+
+//Location Section Ends
+
+
+// Products section
+#products{
+    
+    background: #f4f9f9;
+    .heading{
+        h1{
+            @include heading;
+        }
+    }
+    
+    .box-container{
+        display: flex;
+        flex-wrap: wrap;
+        
+        justify-content: space-around;
+        margin: 1rem auto;
+        width: 90%;
+
+        .box{
+            margin: 2rem;
+            margin-top: 3rem;
+            border-radius: 0.9rem;
+            height: 20rem;
+            width: 25rem;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 0.9rem #333; 
+
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .info{
+                position: absolute;
+                text-align: center;
+                transform: scale(0);
+                top: 0;
+                left: 0;
+                align-items: center;
+                flex-flow: column;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                transition: 0.5s;
+            }
+            h1{
+                font-weight: bold;
+                font-size: 3rem;
+               
+            }
+            &:hover .info{
+                transform: scale(1);
+                color:#ac0606;
+                font-weight: bold;
+                border-bottom: .2rem solid #ac0606;
+                border-top: .2rem solid #ac0606;
+            }
+            &:hover img{
+                opacity: 0.2;
+            }
+
+            
+        }
+    }
+
+}
+// Products section Ends
+
+//Media Queries
+
+@media (max-width: 768px){
+
+    #header{
+
+        .logo{
+            margin-left: 0.3rem;
+            img{
+                height: 3rem;
+                
+            }
+        }
+        .grocery{
+            display: block;
+        }
+        nav{
+            position: absolute;
+            top: 0;
+            right: -120%;
+            height: 100vh;
+            width: 25rem;
+            background-color: black;
+
+            ul{
+                flex-flow: column;
+                justify-content: center;
+                height: 100%;
+
+                li{
+                    margin: 2rem 0;
+                    a{
+                        color: white;
+                        font-size: 1.5rem;
+                        border-radius: 5rem;
+
+                        &:hover {
+                            padding: 0.5rem 7.5rem;
+                            color: white;
+                            background-color: #ac0606;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+        .nav-toggle{
+            right: 0%;
+        }
+    }
+    
+    #products {
+        .box-container{
+            margin: auto 2.7rem;
+            justify-content: center;
+            .box{
+                margin: 2rem 3remauto;
+            }
+        }
+    }
+
+    #home{
+        .download-button{
+            justify-content: center;
+            
+            .btn-store{
+                margin-top: 2rem;
+                flex-flow: column;
+            }
+
+            .google{
+                justify-content: center;
+                margin-left: 1.44rem;
+            }
+        }
+
+        .homerow{
+            width: unset !important;
+            display: flex;
+            flex-flow: column;
+            .download-button{
+                margin-top: 4rem;
+
+            }
+            .video-container{
+                object-fit: cover;
+                .vid{
+                    height: 60rem;
+                    margin-right: 0.3rem;
+                    align-items: center;
+                    justify-content: center;
+                }
+                
+            }
+        }
+    }
+
+    #location{
+        .heading{
+            p{
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+}
+//Media Queries Ends
+
+
+
+

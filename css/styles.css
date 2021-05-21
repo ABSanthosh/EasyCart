@@ -1,0 +1,310 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 2rem;
+  z-index: 1000;
+  height: 2.5rem;
+  font-family: "Lemonada", sans-serif;
+}
+#header .logo img {
+  font-size: 4rem;
+  height: 3.5rem;
+}
+#header nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+}
+#header nav ul li {
+  margin-right: 2rem;
+}
+#header nav ul li a {
+  text-decoration: none;
+  color: red;
+  font-size: 1.3 rem;
+  font-weight: bold;
+}
+#header nav ul li a:hover {
+  color: #ac0606;
+  font-size: 1.5rem;
+}
+#header .grocery {
+  height: 3rem;
+  display: none;
+}
+
+.fa-times {
+  transform: skew(360deg) rotate(360deg);
+}
+
+.header-active {
+  background: #333;
+  height: 6rem;
+  box-shadow: 0.2rem 0 0.5rem #000;
+  color: white;
+}
+.header-active nav ul {
+  margin: 0;
+}
+
+#home {
+  background: #e1e5ea;
+  position: relative;
+  font-family: "Lemonada", sans-serif;
+}
+#home h1 {
+  font-size: 5rem;
+  margin: 1rem 0;
+  text-align: left;
+  color: #ac0606;
+  font-weight: bolder;
+}
+#home p {
+  font-size: 1rem;
+  text-align: left;
+  color: #fff;
+}
+#home .download-button {
+  margin: auto 7rem;
+  width: unset !important;
+}
+#home .download-button .apple {
+  min-width: 254px;
+  padding: 12px 20px !important;
+  margin: auto 1rem;
+}
+#home .download-button .apple img {
+  height: 5rem;
+}
+#home .download-button .google img {
+  height: 5rem;
+}
+#home .download-button .btn-store .btn-label,
+#home .download-button .btn-store .btn-caption {
+  display: block;
+  text-align: left;
+  line-height: 1;
+}
+#home .download-button .btn-store .btn-caption {
+  font-size: 24px;
+}
+#home .homerow {
+  width: unset !important;
+  display: flex;
+}
+#home .homerow .video-container .vid {
+  height: 60rem;
+  margin-right: 0.5rem;
+}
+
+#location {
+  background: #f4f9f9;
+}
+#location .heading h1 {
+  color: #ac0606;
+  font-size: 3rem;
+  padding-top: 2.5rem;
+}
+#location .heading h1 span {
+  color: #333;
+}
+#location .heading p {
+  color: #333;
+  font-size: 1.5rem;
+}
+#location .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+#location .card-container .card {
+  height: 30rem;
+  width: 25rem;
+  margin: 2rem 3rem;
+  background: #ac0606;
+}
+#location .card-container .card img {
+  height: 87%;
+  width: 100%;
+  object-fit: cover;
+}
+#location .card-container .card img .rad {
+  transform: scale(1.5);
+}
+#location .card-container .card h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 0.6rem;
+  color: white;
+}
+#location .card-container .card:hover {
+  transform: scale(0.9);
+}
+
+#products {
+  background: #f4f9f9;
+}
+#products .heading h1 {
+  color: #ac0606;
+  font-size: 3rem;
+  padding-top: 2.5rem;
+}
+#products .heading h1 span {
+  color: #333;
+}
+#products .box-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 1rem auto;
+  width: 90%;
+}
+#products .box-container .box {
+  margin: 2rem;
+  margin-top: 3rem;
+  border-radius: 0.9rem;
+  height: 20rem;
+  width: 25rem;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 0.9rem #333;
+}
+#products .box-container .box img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+#products .box-container .box .info {
+  position: absolute;
+  text-align: center;
+  transform: scale(0);
+  top: 0;
+  left: 0;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  transition: 0.5s;
+}
+#products .box-container .box h1 {
+  font-weight: bold;
+  font-size: 3rem;
+}
+#products .box-container .box:hover .info {
+  transform: scale(1);
+  color: #ac0606;
+  font-weight: bold;
+  border-bottom: 0.2rem solid #ac0606;
+  border-top: 0.2rem solid #ac0606;
+}
+#products .box-container .box:hover img {
+  opacity: 0.2;
+}
+
+@media (max-width: 768px) {
+  #header .logo {
+    margin-left: 0.3rem;
+  }
+  #header .logo img {
+    height: 3rem;
+  }
+  #header .grocery {
+    display: block;
+  }
+  #header nav {
+    position: absolute;
+    top: 0;
+    right: -120%;
+    height: 100vh;
+    width: 25rem;
+    background-color: black;
+  }
+  #header nav ul {
+    flex-flow: column;
+    justify-content: center;
+    height: 100%;
+  }
+  #header nav ul li {
+    margin: 2rem 0;
+  }
+  #header nav ul li a {
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 5rem;
+  }
+  #header nav ul li a:hover {
+    padding: 0.5rem 7.5rem;
+    color: white;
+    background-color: #ac0606;
+    font-size: 1rem;
+  }
+  #header .nav-toggle {
+    right: 0%;
+  }
+
+  #products .box-container {
+    margin: auto 2.7rem;
+    justify-content: center;
+  }
+  #products .box-container .box {
+    margin: 2rem 3remauto;
+  }
+
+  #home .download-button {
+    justify-content: center;
+  }
+  #home .download-button .btn-store {
+    margin-top: 2rem;
+    flex-flow: column;
+  }
+  #home .download-button .google {
+    justify-content: center;
+    margin-left: 1.44rem;
+  }
+  #home .homerow {
+    width: unset !important;
+    display: flex;
+    flex-flow: column;
+  }
+  #home .homerow .download-button {
+    margin-top: 4rem;
+  }
+  #home .homerow .video-container {
+    object-fit: cover;
+  }
+  #home .homerow .video-container .vid {
+    height: 60rem;
+    margin-right: 0.3rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #location .heading p {
+    font-size: 1.5rem;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
