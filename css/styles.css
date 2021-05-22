@@ -20,33 +20,52 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 2rem;
+  padding: 1rem 2rem;             
+  /* ^ Made a small change from 2rem 2rem -> 1rem 2rem */
   z-index: 1000;
-  height: 2.5rem;
+  height: 5.5rem;
   font-family: "Lemonada", sans-serif;
 }
 #header .logo img {
   font-size: 4rem;
-  height: 3.5rem;
+  height: 4rem;
+  /* ^ Small height change */
 }
+
+#header nav {
+  display: flex;
+  height: 100%;
+}
+/* ^ Added these rules to stretch the nav and flex for easy positioning of child elements*/
+/* Also removed li tag from around anchor tag since it does not serve any function here*/
 #header nav ul {
+  width: 100%;
+  height: 100%;
+  
+  /* Below 3 are to override whatever external lib you were using */
+  /* They had a different rules but not useful for this place */
+  margin-top: unset;
+  margin-bottom: unset;
+  padding: unset;
+
   display: flex;
   align-items: center;
   justify-content: space-around;
   list-style: none;
 }
-#header nav ul li {
-  margin-right: 2rem;
-}
-#header nav ul li a {
+
+#header nav ul a {
   text-decoration: none;
   color: red;
   font-size: 1.3 rem;
   font-weight: bold;
+  padding: 10px 20px;
+  transition: all 0.2s ease-in-out;
 }
-#header nav ul li a:hover {
+#header nav ul a:hover {
   color: #ac0606;
-  font-size: 1.5rem;
+  transform: scale(1.5);
+  /* Changed font-size to transform for better visuals */
 }
 #header .grocery {
   height: 3rem;
@@ -71,6 +90,11 @@ body {
   background: #e1e5ea;
   position: relative;
   font-family: "Lemonada", sans-serif;
+  
+  height: 100vh;
+  /* ^ vh stands for view height. 100vh means the element will occupy 100% of the visible screen size */
+  display: flex;
+  /* and flex to easily position child elements */
 }
 #home h1 {
   font-size: 5rem;
@@ -84,11 +108,31 @@ body {
   text-align: left;
   color: #fff;
 }
-#home .download-button {
-  margin: auto 7rem;
+
+/* Added these rules to the container inside home section to dynamically adjust contents within */
+#home .homerow {
   width: unset !important;
+  display: flex;
+  height: 85%;
+  margin: auto;
+  /* You can simply use margin:auto to align elements to the center */
+  justify-content: center;
+  column-gap: 5rem;
+  /* these are to prevent too much or too little white space btw child elements */
 }
-#home .download-button .apple {
+
+#home .download-button {
+  margin: auto;
+  /* similarly, it was auto 7rem for margin which means */
+  /* you are asking the element to center it vertically and force it to have 7rem margin on left and right */
+  /* syntax is: margin: top right bottom left or */
+  /* margin: top&&bottom left&&right */
+  width: 100%;
+  /* ^ it was unset which means it will automatically wrap the element to whatever the content is*/
+  /* Explicit width means you have more control */
+}
+#home .download-button .apple,
+#home .download-button .google {
   min-width: 254px;
   padding: 12px 20px !important;
   margin: auto 1rem;
@@ -108,15 +152,20 @@ body {
 #home .download-button .btn-store .btn-caption {
   font-size: 24px;
 }
-#home .homerow {
-  width: unset !important;
-  display: flex;
+
+#home .homerow .video-container {
+  height: 100%;
+  /* But explicit dimensions does not always work for responsive layouts
+  try to use % as much as possible for responsive designs */
+  width: 40%;
 }
 #home .homerow .video-container .vid {
-  height: 60rem;
-  margin-right: 0.5rem;
+  align-self: center;
+  height: 105%;
 }
 
+
+/* No changes from here except one in .card-container class. */
 #location {
   background: #f4f9f9;
 }
@@ -136,6 +185,10 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  
+  /* Below rules will give more control */
+  width: 80%;
+  margin: auto;
 }
 #location .card-container .card {
   height: 30rem;
@@ -225,11 +278,15 @@ body {
 }
 
 @media (max-width: 768px) {
+  #header {
+    height: 120px;
+    width: 100vw;
+  }
   #header .logo {
     margin-left: 0.3rem;
   }
   #header .logo img {
-    height: 3rem;
+    height: 6rem;
   }
   #header .grocery {
     display: block;
@@ -273,31 +330,31 @@ body {
     margin: 2rem 3remauto;
   }
 
+  #home {
+    width: 100vw;
+    height: unset;
+  }
+
   #home .download-button {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-  }
-  #home .download-button .btn-store {
-    margin-top: 2rem;
-    flex-flow: column;
-  }
-  #home .download-button .google {
-    justify-content: center;
-    margin-left: 1.44rem;
   }
   #home .homerow {
     width: unset !important;
+    margin-top: 150px;
     display: flex;
     flex-flow: column;
   }
-  #home .homerow .download-button {
-    margin-top: 4rem;
-  }
   #home .homerow .video-container {
     object-fit: cover;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   #home .homerow .video-container .vid {
     height: 60rem;
-    margin-right: 0.3rem;
     align-items: center;
     justify-content: center;
   }
